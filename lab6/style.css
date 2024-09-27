@@ -1,0 +1,147 @@
+*{box-sizing: border-box;}
+img{width: 100%; height: 100%; display: flex;}
+body {
+    background-color: rgb(240,240,240);
+}
+.headertop{
+    border: solid blue 1px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.navleft, .navright{
+    width: 50%;
+    height: 100px;
+    border: red solid 1px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.navleft div:nth-child(1){
+    width: 100px;;
+}
+.homeiconimg{
+    padding: 20px;
+ }
+.navleft div:nth-child(2){
+    padding: 30px 10px;
+    font-family:"Arial Black";
+    font-size: 1.4em;
+}
+.homeiconimg:hover{
+    opacity: 0.5;
+}
+.homeiconlink{
+    text-decoration: none;
+    color: lightseagreen;
+}
+.homeiconlink:hover{
+    text-decoration: underline;
+    color: darkslateblue;
+}
+.navright div{
+    width: 20%;
+    padding: 20px;
+    height: 100%;
+}
+.navright div:nth-child(1){
+    margin-left: auto;
+}
+.navright div:hover{
+   cursor: pointer;
+   opacity: 0.5;
+}
+
+/*---- NAVIGATION TABS ----*/
+.navlinks{
+    width: 100%;
+    background-color: lightseagreen;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.links{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2em;
+    color: darkslateblue;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.links:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/*intro image*/
+
+.introimage {
+    width: 1200px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+}
+
+.introtitle {
+    position: absolute;
+    top: 550px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 3em;
+    color: lightseagreen;
+}
+
+
+/*main body*/
+.bodyinfo {
+    width: 1200px;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardcontainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* This ensures that the cards wrap after 2 per row */
+    justify-content: space-between;
+}
+
+.blogs {
+    width: 25%;
+}
+
+.cardcontainer .blogs {
+    height: 100%;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.card {
+    width: 48%;
+    height: 300px;
+    border: solid 1px lightgray;
+    margin: 1%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    height: 40%;
+}
+
+.cardtitle {
+    padding: 20px;
+    font-size: 1.5em;
+    color: darkslateblue;
+    cursor: pointer;
+}
+
+.cardtitle:hover {
+    text-decoration: underline;
+}
