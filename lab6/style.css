@@ -24,7 +24,7 @@ body {
     height: 100px;
     display: flex;
     flex-wrap: wrap;
-    background-color: lightseagreen;
+    background-color: lightblue;
 }
 
 .navleft div:nth-child(1) {
@@ -51,7 +51,7 @@ body {
 
 .homeiconlink {
     text-decoration: none;
-    color: navajowhite;
+    color: navy;
 }
 
 .homeiconlink:hover {
@@ -76,7 +76,7 @@ body {
 
 .navlinks {
     width: 100%;
-    background-color: lightseagreen;
+    background-color: lightblue;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -93,7 +93,7 @@ body {
 }
 
 .links:hover {
-    color: white;
+    color: darkred;
     text-decoration: underline;
 }
 
