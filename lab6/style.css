@@ -1,66 +1,88 @@
-*{box-sizing: border-box;}
-img{width: 100%; height: 100%; display: flex;}
-body {
-    background-color: rgb(240,240,240);
+* {
+    box-sizing: border-box;
 }
-.headertop{
+
+img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.headertop {
     border: solid blue 1px;
     height: 100px;
     display: flex;
     flex-wrap: wrap;
 }
-.navleft, .navright{
+
+.navleft, .navright {
     width: 50%;
     height: 100px;
-    border: red solid 1px;
     display: flex;
     flex-wrap: wrap;
+    background-color: lightseagreen;
 }
-.navleft div:nth-child(1){
-    width: 100px;;
+
+.navleft div:nth-child(1) {
+    width: 100px;
 }
-.homeiconimg{
+
+.navright img {
+    width: 30px;
+    height: 30px;
+}
+.homeiconimg {
     padding: 20px;
- }
-.navleft div:nth-child(2){
+}
+
+.navleft div:nth-child(2) {
     padding: 30px 10px;
-    font-family:"Arial Black";
+    font-family: "Arial Black";
     font-size: 1.4em;
 }
-.homeiconimg:hover{
+
+.homeiconimg:hover {
     opacity: 0.5;
 }
-.homeiconlink{
+
+.homeiconlink {
     text-decoration: none;
-    color: lightseagreen;
+    color: navajowhite;
 }
-.homeiconlink:hover{
+
+.homeiconlink:hover {
     text-decoration: underline;
     color: darkslateblue;
 }
-.navright div{
+
+.navright div {
     width: 20%;
     padding: 20px;
     height: 100%;
 }
-.navright div:nth-child(1){
+
+.navright div:nth-child(1) {
     margin-left: auto;
 }
-.navright div:hover{
-   cursor: pointer;
-   opacity: 0.5;
+
+.navright div:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
 
-/*---- NAVIGATION TABS ----*/
-.navlinks{
+.navlinks {
     width: 100%;
     background-color: lightseagreen;
-    padding: 20px;
+    padding: 5px;
     display: flex;
     justify-content: center;
 }
 
-.links{
+.links {
     width: 20%;
     display: inline-block;
     text-align: center;
@@ -74,8 +96,6 @@ body {
     color: white;
     text-decoration: underline;
 }
-
-/*intro image*/
 
 .introimage {
     width: 1200px;
@@ -94,39 +114,25 @@ body {
     color: lightseagreen;
 }
 
-
-/*main body*/
 .bodyinfo {
     width: 1200px;
     background-color: white;
     margin: auto;
     display: flex;
-    flex-wrap: wrap;
 }
 
 .cardcontainer {
-    width: 100%;
+    width: 75%;
     display: flex;
-    flex-wrap: wrap; /* This ensures that the cards wrap after 2 per row */
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.blogs {
-    width: 25%;
-}
-
-.cardcontainer .blogs {
-    height: 100%;
-    margin-top: 40px;
-    border-radius: 20px;
-    background-color: white;
-}
-
 .card {
-    width: 48%;
+    width: 40%;
     height: 300px;
     border: solid 1px lightgray;
-    margin: 1%;
+    margin: 20px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -136,7 +142,7 @@ body {
 }
 
 .cardtitle {
-    padding: 20px;
+    padding: 5px 20px;
     font-size: 1.5em;
     color: darkslateblue;
     cursor: pointer;
@@ -144,4 +150,33 @@ body {
 
 .cardtitle:hover {
     text-decoration: underline;
+}
+
+/*-- right blog column --*/
+.blogs {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+
+    width: 25%;
+    height: auto;
+
+    padding: 20px;
+
+    border: solid 1px lightgray;
+    border-radius: 20px;
+
+    background-color: white;
+}
+
+.blogs h2 {
+    font-size: 1.5em;
+    color: darkslateblue;
+}
+
+/*--footer section-- */
+.footer {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
