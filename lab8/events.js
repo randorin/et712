@@ -36,3 +36,9 @@ let counter = 0
 circle.onmouseout = function() {
     circle.textContent = counter+=1
 }
+
+// reset circle counter to 0
+let reset = document.querySelector('.reset')
+reset.onclick = function() {
+    circle.textContent = 0
+}
