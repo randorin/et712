@@ -19,3 +19,12 @@
     padding: 60px;
     text-align: center;
 }
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: solid 2px lightblue;
+    text-align: center;
+    padding-top: 40px;
+}

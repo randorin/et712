@@ -28,3 +28,11 @@ function pickcolor() {
 numberdiv.onclick = function() {
     numberdiv.style.backgroundColor = pickcolor()
 }
+
+// exercise
+let circle = document.querySelector('.circle')
+let counter = 0
+
+circle.onmouseout = function() {
+    circle.textContent = counter += 1
+}
