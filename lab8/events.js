@@ -24,3 +24,7 @@ function pickcolor() {
     let blue = Math.floor(Math.random()*255)
     return `rgb(${red}, ${green}, ${blue})`
 }
+
+numberdiv.onclick = function() {
+    numberdiv.style.backgroundColor = pickcolor()
+}
