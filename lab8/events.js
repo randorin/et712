@@ -34,5 +34,5 @@ let circle = document.querySelector('.circle')
 let counter = 0
 
 circle.onmouseout = function() {
-    circle.textContent = counter += 1
+    circle.textContent = counter+=1
 }
