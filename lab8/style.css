@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.square, .animalsdiv {
+.square, .animalsdiv, .numberdiv {
     width: 200px;
     height: 200px;
     border: solid 1px lightblue;
@@ -10,6 +10,12 @@
 
 .animalsdiv {
     font-size: 3em;
+    padding: 60px;
+    text-align: center;
+}
+
+.numberdiv {
+    font-size: 2em;
     padding: 60px;
     text-align: center;
 }
