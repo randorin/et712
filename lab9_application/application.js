@@ -5,3 +5,24 @@ document.addEventListener("keydown", function(event) {
     console.log(`ascii code of the pressed key is ${event.keyCode}`)
     console.log(`Using 'which' property ${event.which}`)
 })
+
+let btnpressme = document.querySelector("button.btnpressme")
+// class toggle
+btnpressme.addEventListener("click", function(e) {
+    if (e.target.textContent === "PRESS ME") {
+        e.target.textContent = "Button was pressed!"
+    } else {
+        e.target.textContent = "PRESS ME"
+    }
+    // toggle class in a button
+    e.target.classList.toggle("btnactive")
+})
+
+// prevent default
+// collect element
+let linkqcc = document.querySelector(".linkqcc")
+linkqcc.addEventListener("click", function(event) {
+    event.preventDefault()
+    alert("Website on maintainance")
+    
+})

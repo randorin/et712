@@ -1,0 +1,11 @@
+.btnpressme {
+    padding: 0.5e, 2em;
+    color: whitesmoke;
+    border-radius: 12px;
+    background-color: rgb(50,50,50);
+}
+
+.btnactive {
+    background-color: crimson;
+    font-weight: bolder;
+}
