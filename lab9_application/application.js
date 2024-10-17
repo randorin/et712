@@ -24,5 +24,20 @@ let linkqcc = document.querySelector(".linkqcc")
 linkqcc.addEventListener("click", function(event) {
     event.preventDefault()
     alert("Website on maintainance")
-    
+})
+// modal window
+// collect element
+let modalwindow = document.querySelector(".modalwindow")
+let closemodalx = document.querySelector(".closemodalx")
+let btnpromotion = document.querySelector(".btnpromotion")
+let btnopenmodal = document.querySelector(".btnopenmodal")
+closemodalx.addEventListener("click", function() {
+    modalwindow.style.display = "none"
+})
+btnpromotion.addEventListener("click", function() {
+    modalwindow.style.display = "none"
+})
+// open modal window
+btnopenmodal.addEventListener("click", function() {
+    modalwindow.style.display = "block"
 })

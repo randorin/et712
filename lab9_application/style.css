@@ -1,5 +1,5 @@
 .btnpressme {
-    padding: 0.5e, 2em;
+    padding: 0.5e 2em;
     color: whitesmoke;
     border-radius: 12px;
     background-color: rgb(50,50,50);
@@ -8,4 +8,57 @@
 .btnactive {
     background-color: crimson;
     font-weight: bolder;
+}
+
+.modalwindow {
+    background-color: rgba(100,100,100,0.7);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    display: none;
+}
+.modalinfo {
+    background-color: white;
+    margin: 10% auto;
+    height: 500px;
+    width: 800px;
+}
+
+.closemodalx {
+    font-size: 2em;
+    padding: 12px;
+    display: inline-block;
+    color: gray;
+    margin-left: 90%;
+}
+.closemodalx:hover {
+    color: crimson;
+}
+.modalcontenttitle {
+    font-size: 3em;
+    color: darkslategray;
+    text-align: center;
+}
+.modalcontenttext {
+    font-size: 3em;
+    color: crimson;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.btnpromotion {
+    background-color: darkblue;
+    color: white;
+    width: 90%;
+    margin: 1em 5%;
+    padding: 1em;
+    font-size: 1.5em;
+    border: none;
+}
+
+.btnpromotion:hover {
+    background-color: purple;
+    cursor: pointer;
 }
