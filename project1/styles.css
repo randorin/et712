@@ -1,112 +1,207 @@
+/* General Styles */
 body {
-    font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
-/*index page colors*/
+
+/* Header Styles */
 h1, h4 {
-    text-align: center;
-    margin: 10px 0;
-  }
-  
-  .colorsindex {
-    position: relative;
-    display: inline-block;
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  
-  .colorsindex img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .colorsindex a {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    text-decoration: none;
-    font-size: 3em;
-    border-radius: 5px;
-  }
-  
-  .box-container-index {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    justify-content: center;
-    max-width: 80%;
-    margin: 20px auto;
-  }
-  
-  
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Index Page Styles */
+.colorsindex {
+  position: relative;
+  display: inline-block;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.colorsindex img {
+  width: 100%;
+  height: auto;
+}
+
+.colorsindex a {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 3em;
+  border-radius: 5px;
+}
+
+.box-container-index {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  max-width: 80%;
+  margin: 20px auto;
+}
+
+/* Color Box Styles */
 .container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  .box {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-size: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid black;
-  }
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
-  #red:hover {
-    background-color: red;
-    color: white;
-  }
-  #orange:hover {
-    background-color: orange;
-    color: white;
+.box {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid black;
+}
 
-  }
-  #yellow:hover {
-    background-color: yellow;
-  }
-  #green:hover {
-    background-color: green;
-    color: white;
-  }
-  #blue:hover {
-    background-color: blue;
-    color: white;
-  }
-  #indigo:hover {
-    background-color: indigo;
-    color: white;
-  }
-  #violet:hover {
-    background-color: violet;
-    color: white;
-  }
+/* Color Hover Effects */
+#red:hover { background-color: red; color: white; }
+#orange:hover { background-color: orange; color: white; }
+#yellow:hover { background-color: yellow; color: black; } /* Added color to maintain contrast */
+#green:hover { background-color: green; color: white; }
+#blue:hover { background-color: blue; color: white; }
+#indigo:hover { background-color: indigo; color: white; }
+#violet:hover { background-color: violet; color: white; }
 
+/* Rainbow Image Styles */
 .rainbowimgcontainer {
-    text-align: center;
-}  
-.rainbowimg {
-    text-align: center;
-    width: 25%;
-    display: inline-block;
+  text-align: center;
 }
 
-/*color quiz*/
-.takequizcontainer {
-    text-align: center; 
-    margin-top: 20px;
+.rainbowimg {
+  text-align: center;
+  width: 25%;
+  display: inline-block;
 }
+
+/* Color Quiz Styles */
+.takequizcontainer {
+  text-align: center; 
+  margin-top: 20px;
+}
+
 #takeQuiz {
-    padding: 10px 20px; 
-    font-size: 16px; 
-    cursor: pointer;
+  padding: 10px 20px; 
+  font-size: 16px; 
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+}
+
+/* Popup Styles */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+/* Color Box for Quiz */
+.color-box {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px solid black;
+}
+
+/* Grid Styles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid div {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid div:hover {
+  background-color: #eaeaea;
+}
+
+/* Game Over Styles */
+.exit {
+  cursor: pointer;
+  float: right;
+}
+
+.gameOver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: pink;
+  color: black;
+}
+
+#gameOver {
+  text-align: center;
+  display: none;
+}
+
+#exitBtn {
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+}
+
+/* Quiz Popup Styles */
+#quizPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 20px;
+  z-index: 100;
+}
+
+#colorBox {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 1px solid #000;
 }
