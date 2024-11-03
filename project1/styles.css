@@ -1,15 +1,12 @@
-/* General Styles */
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
-/* Header Styles */
 h1, h4 {
   text-align: center;
   margin: 10px 0;
 }
 
-/* Index Page Styles */
 .colorsindex {
   position: relative;
   display: inline-block;
@@ -43,7 +40,6 @@ h1, h4 {
   margin: 20px auto;
 }
 
-/* Color Box Styles */
 .container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -65,16 +61,6 @@ h1, h4 {
   border: 1px solid black;
 }
 
-/* Color Hover Effects */
-#red:hover { background-color: red; color: white; }
-#orange:hover { background-color: orange; color: white; }
-#yellow:hover { background-color: yellow; color: black; } /* Added color to maintain contrast */
-#green:hover { background-color: green; color: white; }
-#blue:hover { background-color: blue; color: white; }
-#indigo:hover { background-color: indigo; color: white; }
-#violet:hover { background-color: violet; color: white; }
-
-/* Rainbow Image Styles */
 .rainbowimgcontainer {
   text-align: center;
 }
@@ -85,19 +71,12 @@ h1, h4 {
   display: inline-block;
 }
 
-/* Color Quiz Styles */
 .takequizcontainer {
   text-align: center; 
   margin-top: 20px;
 }
 
-#takeQuiz {
-  padding: 10px 20px; 
-  font-size: 16px; 
-  cursor: pointer;
-}
-
-button {
+#takeQuiz, #nextBtn, #prevBtn, #tryAgain {
   padding: 10px 20px;
   margin: 10px;
   border: none;
@@ -107,32 +86,26 @@ button {
   font-size: 16px;
 }
 
-/* Popup Styles */
-.popup {
+#quizPopup, #gameOver {
   display: none;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: white;
   position: fixed;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
 }
 
-.popup-content {
-  text-align: center;
-}
-
-/* Color Box for Quiz */
 .color-box {
   width: 100px;
   height: 100px;
   margin: 20px auto;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
-/* Grid Styles */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -151,7 +124,6 @@ button {
   background-color: #eaeaea;
 }
 
-/* Game Over Styles */
 .exit {
   cursor: pointer;
   float: right;
@@ -186,22 +158,57 @@ button {
   font-size: 20px;
 }
 
-/* Quiz Popup Styles */
-#quizPopup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  background-color: white;
-  padding: 20px;
-  z-index: 100;
-}
-
 #colorBox {
   width: 100px;
   height: 100px;
   margin: 20px auto;
   border: 1px solid #000;
+}
+
+.numbersbox {
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  border: 1px solid #ff9800;
+  border-radius: 15px;
+  background-color: pink;
+  color: #3f51b5;
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.numbersbox:hover {
+  transform: scale(1.05);
+}
+
+
+/*audio button*/
+.audio-button {
+  background-color: hotpink;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.audio-button:hover {
+  background-color: navy;
+  transform: scale(1.1);
+}
+
+.audio-button:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  margin-right: 5px;
+  font-size: 24px;
 }

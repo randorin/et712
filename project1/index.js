@@ -1,139 +1,197 @@
-document.getElementById('takeQuiz').onclick = () => {
-    questions = getRandomQuestions(allQuestions, 3);
-    showPopup();
-    loadQuestion();
-};
+document.addEventListener("DOMContentLoaded", function() {
+    const colors = [
+        { name: 'Red', code: 'red' },
+        { name: 'Orange', code: 'orange' },
+        { name: 'Yellow', code: 'yellow' },
+        { name: 'Green', code: 'green' },
+        { name: 'Blue', code: 'blue' },
+        { name: 'Indigo', code: 'indigo' },
+        { name: 'Violet', code: 'violet' }
+    ];
 
-const colors = [
-    { name: 'Red', code: 'red' },
-    { name: 'Orange', code: 'orange' },
-    { name: 'Yellow', code: 'yellow' },
-    { name: 'Green', code: 'green' },
-    { name: 'Blue', code: 'blue' },
-    { name: 'Indigo', code: '#4B0082' },
-    { name: 'Violet', code: 'violet' }
-];
+    const allQuestions = [
+        { color: 'red', correct: 'Red' },
+        { color: 'orange', correct: 'Orange' },
+        { color: 'yellow', correct: 'Yellow' },
+        { color: 'green', correct: 'Green' },
+        { color: 'blue', correct: 'Blue' },
+        { color: 'indigo', correct: 'Indigo' },
+        { color: 'violet', correct: 'Violet' }
+    ];
 
-const allQuestions = [
-    { color: 'red', correct: 'Red' },
-    { color: 'orange', correct: 'Orange' },
-    { color: 'yellow', correct: 'Yellow' },
-    { color: 'green', correct: 'Green' },
-    { color: 'blue', correct: 'Blue' },
-    { color: 'indigo', correct: 'Indigo' },
-    { color: 'violet', correct: 'Violet' }
-];
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let attempts = 0;
+    let correctAnswers = 0;
 
-let questions = [];
-let currentQuestionIndex = 0;
-let attempts = 0;
-let correctAnswers = 0;
+    const QuizPopup = (() => {
+        const popupElement = document.getElementById('quizPopup');
+        const exitButton = document.getElementById('exitBtn');
 
-document.getElementById('exitBtn').onclick = () => {
-    closePopup();
-};
+        function show() {
+            popupElement.style.display = 'block';
+        }
 
-document.getElementById('tryAgain').onclick = () => {
-    resetQuiz();
-};
+        function hide() {
+            popupElement.style.display = 'none';
+            closeGameOver();
+        }
 
-document.getElementById('prevBtn').onclick = () => {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        loadQuestion();
-    }
-};
+        exitButton.onclick = hide;
 
-document.getElementById('nextBtn').onclick = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-        loadQuestion();
-    } else {
-        showGameOver();
-    }
-};
+        function showGameOver() {
+            document.getElementById('gameOver').style.display = 'block';
+            document.getElementById('resultMessage').innerText = `You got ${correctAnswers} out of ${questions.length} correct!`;
+        }
 
+        function closeGameOver() {
+            document.getElementById('gameOver').style.display = 'none';
+        }
 
-function getRandomQuestions(allQuestions, numQuestions) {
-    const shuffled = allQuestions.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, numQuestions);
-}
-
-function showPopup() {
-    document.getElementById('quizPopup').style.display = 'block';
-}
-
-function closePopup() {
-    document.getElementById('quizPopup').style.display = 'none';
-}
-
-function loadQuestion() {
-    if (currentQuestionIndex >= questions.length) {
-        showGameOver();
-        return;
-    }
-    const question = questions[currentQuestionIndex];
-    document.getElementById('colorBox').style.backgroundColor = question.color;
-    document.getElementById('attempts').innerText = `${attempts}/2 attempts total`;
-    document.getElementById('options').innerHTML = '';
-
-    colors.forEach(color => {
-        const option = document.createElement('div');
-        option.innerText = color.name;
-        option.style.backgroundColor = '#fff';
-        option.classList.add('option');
-
-        option.onmouseover = () => {
-            option.style.backgroundColor = 'pink';
-            option.style.color = 'black';
+        return {
+            show,
+            hide,
+            showGameOver,
+            closeGameOver
         };
+    })();
 
-        option.onmouseout = () => {
-            option.style.backgroundColor = '';
-            option.style.color = '';
-        };
+    document.getElementById('takeQuiz').onclick = () => {
+        questions = getRandomQuestions(allQuestions, 3);
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        attempts = 0;
+        QuizPopup.show();
+        loadQuestion();
+    };
 
-        option.onclick = () => handleAnswer(option, color.name, question.correct);
-        document.getElementById('options').appendChild(option);
-    });
-}
+    document.getElementById('tryAgain').onclick = resetQuiz;
 
-function handleAnswer(optionElement, selectedColor, correctColor) {
-    if (attempts < 2) {
-        if (selectedColor === correctColor) {
-            correctAnswers++;
-            alert("Correct!");
-            disableOptions();
+    document.getElementById('prevBtn').onclick = () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadQuestion();
+        }
+    };
+
+    document.getElementById('nextBtn').onclick = () => {
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
         } else {
-            attempts++;
-            document.getElementById('attempts').innerText = `${attempts}/2 attempted`;
-            optionElement.style.backgroundColor = 'red';
-            if (attempts >= 2) {
-                showGameOver();
+            QuizPopup.showGameOver();
+        }
+    };
+
+    function getRandomQuestions(allQuestions, numQuestions) {
+        const shuffled = allQuestions.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, numQuestions);
+    }
+
+    function loadQuestion() {
+        if (currentQuestionIndex >= questions.length) {
+            QuizPopup.showGameOver();
+            return;
+        }
+        const question = questions[currentQuestionIndex];
+        document.getElementById('colorBox').style.backgroundColor = question.color;
+        document.getElementById('attempts').innerText = `${attempts}/2 attempts total`;
+        document.getElementById('options').innerHTML = '';
+
+        colors.forEach(color => {
+            const option = document.createElement('div');
+            option.innerText = color.name;
+            option.style.backgroundColor = '#fff';
+            option.classList.add('option');
+
+            option.onmouseover = () => {
+                option.style.backgroundColor = 'pink';
+                option.style.color = 'black';
+            };
+
+            option.onmouseout = () => {
+                option.style.backgroundColor = '';
+                option.style.color = '';
+            };
+
+            option.onclick = () => handleAnswer(option, color.name, question.correct);
+            document.getElementById('options').appendChild(option);
+        });
+    }
+
+    function handleAnswer(optionElement, selectedColor, correctColor) {
+        if (attempts < 2) {
+            if (selectedColor === correctColor) {
+                correctAnswers++;
+                alert("Correct!");
+                disableOptions();
+            } else {
+                attempts++;
+                document.getElementById('attempts').innerText = `${attempts}/2 attempted`;
+                optionElement.style.backgroundColor = 'red';
+                if (attempts == 2) {
+                    QuizPopup.showGameOver();
+                }
             }
         }
     }
-}
 
-function disableOptions() {
-    const options = document.getElementById('options').querySelectorAll('.option');
-    options.forEach(option => {
-        option.style.pointerEvents = 'none';
-        option.style.backgroundColor = '#ccc';
-    });
-}
+    function disableOptions() {
+        const options = document.getElementById('options').querySelectorAll('.option');
+        options.forEach(option => {
+            option.style.pointerEvents = 'none';
+            option.style.backgroundColor = '#ccc';
+        });
+    }
 
-function showGameOver() {
-    document.getElementById('gameOver').style.display = 'block';
-    document.getElementById('resultMessage').innerText = `You got ${correctAnswers} out of ${questions.length} correct!`;
-}
+    function resetQuiz() {
+        attempts = 0;
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        questions = getRandomQuestions(allQuestions, 3);
+        loadQuestion();
+        QuizPopup.closeGameOver();
+    }
+});
 
-function resetQuiz() {
-    attempts = 0;
-    currentQuestionIndex = 0;
-    correctAnswers = 0;
-    questions = getRandomQuestions(allQuestions, 3);
-    closePopup();
-    showPopup();
-    loadQuestion();
-}
+// number and audio generator
+document.getElementById('generateNumbers').onclick = function() {
+    let numbersContainer = document.querySelector(".numbersbox");
+    numbersContainer.innerHTML = '';
+
+    let randomNum = Math.floor(Math.random() * 10) + 1;
+
+    let displayContainer = document.createElement("div");
+    displayContainer.style.display = 'flex';
+    displayContainer.style.alignItems = 'center';
+
+
+    let numberDisplay = document.createElement("div");
+    numberDisplay.textContent = randomNum;
+    numberDisplay.style.textAlign = 'center';
+    numberDisplay.style.fontSize = '70px';
+
+    let button = document.createElement("button");
+    button.className = "audio-button";
+    button.style.display = 'block';
+    button.style.marginTop = '10px';
+    button.style.marginLeft = 'auto';
+    button.style.marginRight = 'auto';
+
+    let icon = document.createElement("i");
+    icon.className = "fas fa-volume-high"; // Font Awesome speaker icon
+    icon.style.marginRight = '5px';
+
+    button.appendChild(icon);
+
+    button.onclick = function() {
+        let audio = new Audio(`sounds/${randomNum}.mp3`);
+        audio.play().catch(error => {
+            console.error(`Audio file for number ${randomNum} not found or couldn't be played.`, error);
+        });
+    };
+    displayContainer.appendChild(button);
+    displayContainer.appendChild(numberDisplay);
+    numbersContainer.appendChild(displayContainer)
+};
+
