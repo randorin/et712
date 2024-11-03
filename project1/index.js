@@ -133,7 +133,7 @@ function resetQuiz() {
     currentQuestionIndex = 0;
     correctAnswers = 0;
     questions = getRandomQuestions(allQuestions, 3);
-    closePopup();  // Close popup before starting a new quiz
-    showPopup();   // Show the popup again for a new game
-    loadQuestion(); // Load the first question
+    closePopup();
+    showPopup();
+    loadQuestion();
 }
