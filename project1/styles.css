@@ -1,5 +1,12 @@
+* {
+  color: azure;
+}
 body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-image: url(images/spacebg.avif);
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1, h4 {
@@ -7,19 +14,19 @@ h1, h4 {
   margin: 10px 0;
 }
 
-.colorsindex {
+.index {
   position: relative;
   display: inline-block;
   max-width: 600px;
   margin: 20px auto;
 }
 
-.colorsindex img {
-  width: 100%;
-  height: auto;
+.index img {
+  width: 400px;
+  height: 400px;
 }
 
-.colorsindex a {
+.index a {
   position: absolute;
   top: 10%;
   left: 10%;
@@ -29,6 +36,10 @@ h1, h4 {
   text-decoration: none;
   font-size: 3em;
   border-radius: 5px;
+}
+.index figcaption {
+  text-align: center;
+  color:azure;
 }
 
 .box-container-index {
