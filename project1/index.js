@@ -154,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// number and audio generator
 document.getElementById('generateNumbers').onclick = function() {
     let numbersContainer = document.querySelector(".numbersbox");
     numbersContainer.innerHTML = '';
@@ -164,7 +163,6 @@ document.getElementById('generateNumbers').onclick = function() {
     let displayContainer = document.createElement("div");
     displayContainer.style.display = 'flex';
     displayContainer.style.alignItems = 'center';
-
 
     let numberDisplay = document.createElement("div");
     numberDisplay.textContent = randomNum;
@@ -179,7 +177,7 @@ document.getElementById('generateNumbers').onclick = function() {
     button.style.marginRight = 'auto';
 
     let icon = document.createElement("i");
-    icon.className = "fas fa-volume-high"; // Font Awesome speaker icon
+    icon.className = "fas fa-volume-high";
     icon.style.marginRight = '5px';
 
     button.appendChild(icon);
@@ -193,5 +191,49 @@ document.getElementById('generateNumbers').onclick = function() {
     displayContainer.appendChild(button);
     displayContainer.appendChild(numberDisplay);
     numbersContainer.appendChild(displayContainer)
-};
 
+    const swatches = document.querySelectorAll('.colorSwatch');
+    const colorInfo = document.getElementById('colorInfo');
+    
+    const colorFacts = {
+        'red': 'Red is often associated with energy and passion.',
+        'orange': 'Orange represents enthusiasm and creativity.',
+        'yellow': 'Yellow is the color of sunshine and happiness.',
+        'green': 'Green symbolizes nature and growth.',
+        'blue': 'Blue is often linked to calmness and stability.',
+        'indigo': 'Indigo signifies intuition and perception.',
+        'violet': 'Violet is associated with luxury and ambition.'
+    };
+
+    swatches.forEach(swatch => {
+        swatch.onmouseover = () => {
+            const colorName = swatch.innerText;
+            colorInfo.innerText = colorFacts[colorName];
+            colorInfo.style.visibility = 'visible';
+        };
+
+        swatch.onmouseout = () => {
+            colorInfo.style.visibility = 'hidden';
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const clothingItems = document.querySelectorAll('.clothing-item');
+            const clothingInfo = document.getElementById('clothingInfo');
+        
+            clothingItems.forEach(item => {
+                item.addEventListener('mouseover', function() {
+                    clothingInfo.innerText = item.dataset.info;
+                    clothingInfo.style.visibility = 'visible';
+                    const rect = item.getBoundingClientRect();
+                    clothingInfo.style.top = `${rect.bottom}px`;
+                    clothingInfo.style.left = `${rect.left}px`;
+                });
+        
+                item.addEventListener('mouseout', function() {
+                    clothingInfo.style.visibility = 'hidden';
+                });
+            });
+        });
+        
+    });
+};

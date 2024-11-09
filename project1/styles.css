@@ -4,7 +4,6 @@
 body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background-image: url(images/spacebg.avif);
-  color: white;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -93,15 +92,15 @@ h1, h4 {
   border: none;
   cursor: pointer;
   background-color: #4CAF50;
-  color: white;
+  color: black;
   font-size: 16px;
 }
 
 #quizPopup, #gameOver {
   display: none;
-  border: 1px solid black;
+  border: 1px solid blue;
   padding: 20px;
-  background-color: white;
+  background-color: black;
   position: fixed;
   z-index: 1000;
   transform: translate(-50%, -50%);
@@ -139,7 +138,9 @@ h1, h4 {
   cursor: pointer;
   float: right;
 }
-
+#extBtn {
+  color: black;
+}
 .gameOver {
   display: flex;
   justify-content: center;
@@ -222,4 +223,80 @@ h1, h4 {
 .icon {
   margin-right: 5px;
   font-size: 24px;
+}
+
+
+/*color palette*/
+#colorPalette {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+.colorSwatch {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  border: 2px solid black;
+  transition: transform 0.2s;
+}
+.colorSwatch:hover {
+  transform: scale(1.1);
+}
+.colorInfo {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+}
+
+/*clothes*/
+.clothing-display {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.clothing-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.clothing-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+.clothingText {
+  display: none;
+  color: white;
+}
+
+
+.info-box {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  visibility: hidden;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clothing-item:hover .info-box {
+  visibility: visible;
 }
