@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (name && color) {
             feedbackMessage.innerHTML = "Form submitted successfully!";
-            feedbackMessage.style.color = "green";
+            feedbackMessage.style.color = "red";
 
             const result = document.createElement('p');
             result.innerHTML = `Name: ${name} | Favorite Color: ${color}`;

@@ -102,16 +102,17 @@ document.addEventListener("DOMContentLoaded", function() {
             const option = document.createElement('div');
             option.innerText = color.name;
             option.style.backgroundColor = '#fff';
+            option.style.color = 'black';
             option.classList.add('option');
 
             option.onmouseover = () => {
-                option.style.backgroundColor = 'pink';
-                option.style.color = 'black';
+                option.style.backgroundColor = 'black';
+                option.style.color = 'white';
             };
 
             option.onmouseout = () => {
-                option.style.backgroundColor = '';
-                option.style.color = '';
+                option.style.backgroundColor = '#fff';
+                option.style.color = 'black';
             };
 
             option.onclick = () => handleAnswer(option, color.name, question.correct);
@@ -153,87 +154,3 @@ document.addEventListener("DOMContentLoaded", function() {
         QuizPopup.closeGameOver();
     }
 });
-
-document.getElementById('generateNumbers').onclick = function() {
-    let numbersContainer = document.querySelector(".numbersbox");
-    numbersContainer.innerHTML = '';
-
-    let randomNum = Math.floor(Math.random() * 10) + 1;
-
-    let displayContainer = document.createElement("div");
-    displayContainer.style.display = 'flex';
-    displayContainer.style.alignItems = 'center';
-
-    let numberDisplay = document.createElement("div");
-    numberDisplay.textContent = randomNum;
-    numberDisplay.style.textAlign = 'center';
-    numberDisplay.style.fontSize = '70px';
-
-    let button = document.createElement("button");
-    button.className = "audio-button";
-    button.style.display = 'block';
-    button.style.marginTop = '10px';
-    button.style.marginLeft = 'auto';
-    button.style.marginRight = 'auto';
-
-    let icon = document.createElement("i");
-    icon.className = "fas fa-volume-high";
-    icon.style.marginRight = '5px';
-
-    button.appendChild(icon);
-
-    button.onclick = function() {
-        let audio = new Audio(`sounds/${randomNum}.mp3`);
-        audio.play().catch(error => {
-            console.error(`Audio file for number ${randomNum} not found or couldn't be played.`, error);
-        });
-    };
-    displayContainer.appendChild(button);
-    displayContainer.appendChild(numberDisplay);
-    numbersContainer.appendChild(displayContainer)
-
-    const swatches = document.querySelectorAll('.colorSwatch');
-    const colorInfo = document.getElementById('colorInfo');
-    
-    const colorFacts = {
-        'red': 'Red is often associated with energy and passion.',
-        'orange': 'Orange represents enthusiasm and creativity.',
-        'yellow': 'Yellow is the color of sunshine and happiness.',
-        'green': 'Green symbolizes nature and growth.',
-        'blue': 'Blue is often linked to calmness and stability.',
-        'indigo': 'Indigo signifies intuition and perception.',
-        'violet': 'Violet is associated with luxury and ambition.'
-    };
-
-    swatches.forEach(swatch => {
-        swatch.onmouseover = () => {
-            const colorName = swatch.innerText;
-            colorInfo.innerText = colorFacts[colorName];
-            colorInfo.style.visibility = 'visible';
-        };
-
-        swatch.onmouseout = () => {
-            colorInfo.style.visibility = 'hidden';
-        };
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const clothingItems = document.querySelectorAll('.clothing-item');
-            const clothingInfo = document.getElementById('clothingInfo');
-        
-            clothingItems.forEach(item => {
-                item.addEventListener('mouseover', function() {
-                    clothingInfo.innerText = item.dataset.info;
-                    clothingInfo.style.visibility = 'visible';
-                    const rect = item.getBoundingClientRect();
-                    clothingInfo.style.top = `${rect.bottom}px`;
-                    clothingInfo.style.left = `${rect.left}px`;
-                });
-        
-                item.addEventListener('mouseout', function() {
-                    clothingInfo.style.visibility = 'hidden';
-                });
-            });
-        });
-        
-    });
-};
