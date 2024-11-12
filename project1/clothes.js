@@ -1,35 +1,17 @@
-const clothingDisplay = document.getElementById('clothingDisplay');
-const shirtImage = document.createElement('img');
-shirtImage.src = 'images/redshirtbgrm.png';
-shirtImage.style.width = '200px';
-shirtImage.style.display = 'none';
-shirtImage.style.position = 'absolute';
-shirtImage.style.zIndex = '1000';
-
-document.body.appendChild(shirtImage);
-
-const clothingText = document.querySelectorAll('.clothingText');
-clothingText.forEach(text => {
-    text.style.display = 'none';
-});
-
-clothingDisplay.onmouseover = (event) => {
-    shirtImage.style.display = 'block';
-    shirtImage.style.left = `${event.pageX}px`;
-    shirtImage.style.top = `${event.pageY}px`;
-    clothingText.forEach(text => {
-        text.style.display = 'block';
-    });
+document.getElementById("redShirtContainer").onmouseover = function() {
+    document.getElementById("redShirtContainer").style.transform = "scale(1.1)";
+    document.getElementById("redShirtName").style.display = "block";
+};
+document.getElementById("redShirtContainer").onmouseout = function() {
+    document.getElementById("redShirtContainer").style.transform = "scale(1)";
+    document.getElementById("redShirtName").style.display = "none";
 };
 
-clothingDisplay.onmousemove = (event) => {
-    shirtImage.style.left = `${event.pageX}px`;
-    shirtImage.style.top = `${event.pageY}px`;
+document.getElementById("bluePantsContainer").onmouseover = function() {
+    document.getElementById("bluePantsContainer").style.transform = "scale(1.1)";
+    document.getElementById("bluePantsName").style.display = "block";
 };
-
-clothingDisplay.onmouseout = () => {
-    shirtImage.style.display = 'none';
-    clothingText.forEach(text => {
-        text.style.display = 'none';
-    });
+document.getElementById("bluePantsContainer").onmouseout = function() {
+    document.getElementById("bluePantsContainer").style.transform = "scale(1)";
+    document.getElementById("bluePantsName").style.display = "none";
 };

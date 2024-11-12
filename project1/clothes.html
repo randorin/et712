@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clothing</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clothes</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="clothing-display">
-        <div class="clothing-item" data-info="This is a red shirt.">
-            <img src="images/redshirtbgrm.png" alt="Red Shirt">
-            <p>Red Shirt</p>
-        </div>
-        <div class="clothing-item" data-info="This is a blue dress.">
-            <img src="images/blue-dress.jpg" alt="Blue Dress">
-            <p>Blue Dress</p>
-        </div>
-        <div class="clothing-item" data-info="This is a green jacket.">
-            <img src="images/green-jacket.jpg" alt="Green Jacket">
-            <p>Green Jacket</p>
-        </div>
-    </div>
-    <div id="clothingInfo" class="info-box"></div>
-    <div id="clothingDisplay">
-        <p class="clothingText">This is a red shirt!</p>
-        <p class="clothingText">It's great for summer.</p>
-    </div>
-    
-    <script src="clothes.js"></script>
+
+  <div class="navbar">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="colors.html" class="nav-link">Colors</a>
+    <a href="numbers.html" class="nav-link">Numbers</a>
+    <a href="clothes.html" class="nav-link">Clothing</a>
+    <a href="bio.html" class="nav-link">Bio</a>
+  </div>
+  
+<h1>Hover over to learn what each piece of clothing is called.</h1>
+<div class="clothing-container">
+  <div id="redShirtContainer" class="clothing-item">
+    <img src="images/redshirtbgrm.png" alt="Red Shirt" id="redShirt">
+    <span class="clothing-name" id="redShirtName">Red Shirt</span>
+  </div>
+
+  <div id="bluePantsContainer" class="clothing-item">
+    <img src="images/bluepants.png" alt="Blue Pants" id="bluePants">
+    <span class="clothing-name" id="bluePantsName">Blue Pants</span>
+  </div>
+</div>
+
+<script src="clothes.js"></script>
 </body>
 </html>
