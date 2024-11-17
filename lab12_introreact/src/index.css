@@ -6,8 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  box-sizing: border-box;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.subtitle {
+  background-color: azure;
+  box-shadow: 2px 2px 5px lightgray;
+  text-align: center;
+  padding: 1em;
 }
