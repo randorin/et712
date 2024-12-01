@@ -1,0 +1,53 @@
+.member-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .member-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .member-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #800080;
+    margin: 0;
+  }
+  
+  .member-subtitle {
+    font-size: 1.2rem;
+    color: #555555;
+  }
+  
+  .member-content {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .member-image {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .member-bio {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  .wikipedia-note {
+    font-size: 0.9rem;
+    color: #777777;
+    margin-top: 20px;
+  }
+  
