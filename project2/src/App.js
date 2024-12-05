@@ -31,10 +31,21 @@ function App() {
 function Home() {
   return (
     <div className="card-container">
-      <Card title="Angel Beats!" description="Explore the characters of Angel Beats!" />
-      <Card title="Inuyasha" description="Explore the characters of Inuyasha!" />
-      <Card title="Naruto" description="Explore the characters of Naruto!" />
+      <CardLink to="/angelbeats" title="Angel Beats!" description="Explore the characters of Angel Beats!" />
+      <CardLink to="/inuyasha" title="Inuyasha" description="Explore the characters of Inuyasha!" />
+      <CardLink to="/naruto" title="Naruto" description="Explore the characters of Naruto!" />
     </div>
+  );
+}
+
+function CardLink({ to, title, description }) {
+  return (
+    <Link to={to} className="card-link">
+      <div className="card">
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+    </Link>
   );
 }
 

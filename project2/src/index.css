@@ -12,22 +12,25 @@ code {
     monospace;
 }
 
-/* Navigation Bar */
 .nav {
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  background: #333;
+  background: navy;
   color: #fff;
 }
+
 
 .nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  transition: transform 0.1s;
+}
+.nav a:hover {
+  transform: scale(1.5);
 }
 
-/* Container for Centering Content */
 .container {
   display: flex;
   justify-content: center;
@@ -35,22 +38,27 @@ code {
   height: calc(100vh - 50px);
 }
 
-/* Card Styles */
 .card {
   width: 300px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid azure;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px navy;
   text-align: center;
   background: #f9f9f9;
-  margin: 10px; /* Add some space between cards */
+  margin: 10px;
+  transition: transform 0.05s;
 }
 
-/* Card Container on Home Page */
 .card-container {
   display: flex;
-  justify-content: space-around;  /* Space cards evenly */
-  flex-wrap: wrap;  /* Allow cards to wrap on smaller screens */
-  gap: 20px;  /* Space between cards */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card:hover {
+  transform: scale(1.2);
+}
+.header-container {
+  text-align: center;
 }
