@@ -49,6 +49,9 @@ code {
   margin: 10px;
   transition: transform 0.05s;
 }
+.card-link {
+  text-decoration: none;
+}
 
 .card-container {
   display: flex;
