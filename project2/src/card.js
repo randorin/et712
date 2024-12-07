@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({ title, description, imageSrc }) {
+function Card({ title, description}) {
   return (
     <div className="card">
       <h2>{title}</h2>
