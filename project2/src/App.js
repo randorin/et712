@@ -1,11 +1,25 @@
 import React, { useState } from "react";
 import './index.css';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Card from './card';
 import ModalWindow from './modalwindow';
-import angelbeatsimg from './images/angelbeats.jpg'
-import inuyashaimg from './images/inuyasha.jpg'
-import narutoimg from './images/naruto.jpg'
+import angelbeatsimg from './images/angelbeats.jpg';
+import inuyashaimg from './images/inuyasha.jpg';
+import narutoimg from './images/naruto.jpg';
+import AngelBeats from './AngelBeats';
+import Inuyasha from './Inuyasha';
+import Naruto from './Naruto';
+
+function NavLink({ to, children }) {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
+  return (
+    <Link to={to} className={`link ${isActive ? 'active' : ''}`}>
+      {children}
+    </Link>
+  );
+}
 
 function App() {
   const [modalData, setModalData] = useState(null);
@@ -37,25 +51,33 @@ function App() {
         <h1>Anime Main Characters</h1>
       </div>
       <nav className="nav">
-        <Link to="/" className="link">Home</Link>
-        <Link to="/angelbeats" className="link">Angel Beats!</Link>
-        <Link to="/inuyasha" className="link">Inuyasha</Link>
-        <Link to="/naruto" className="link">Naruto</Link>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/angelbeats">Angel Beats</NavLink>
+        <NavLink to="/inuyasha">Inuyasha</NavLink>
+        <NavLink to="/naruto">Naruto</NavLink>
       </nav>
 
       <div className="container">
         <Routes>
           <Route
             path="/"
-            element={<Home cards={cards} openModal={openModal} />}
+            element={
+              <div className="card-container">
+                {cards.map((card, index) => (
+                  <div key={index} onClick={() => openModal(card)} className="card-link">
+                    <Card
+                      title={card.title}
+                      description="Click to see description"
+                      imageSrc={card.imageSrc}
+                    />
+                  </div>
+                ))}
+              </div>
+            }
           />
-          {cards.map((card, index) => (
-            <Route
-              key={index}
-              path={`/${card.title.toLowerCase().replace(/\s+/g, '')}`}
-              element={<Card {...card} />}
-            />
-          ))}
+          <Route path="/angelbeats/*" element={<AngelBeats />} />
+          <Route path="/inuyasha/*" element={<Inuyasha />} />
+          <Route path="/naruto/*" element={<Naruto />} />
           <Route path="*" element={<h2>404 - Page Not Found</h2>} />
         </Routes>
       </div>
@@ -71,20 +93,4 @@ function App() {
   );
 }
 
-function Home({ cards, openModal }) {
-  return (
-    <div className="card-container">
-      {cards.map((card, index) => (
-        <div key={index} onClick={() => openModal(card)} className="card-link">
-          <Card
-            title={card.title}
-            description="Click to see description"
-            imageSrc={card.imageSrc}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default App;
+export default App
