@@ -1,102 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import bannerimg from './images/battlefront.jpg';
-
-function Yuri() {
-  return (
-    <div className="character-detail">
-      <h2>Yuri Nakamura</h2>
-      <img src="/images/yuri.jpg" alt="Yuri Nakamura" />
-      <p>Leader of the Afterlife Battlefront.</p>
-    </div>
-  );
-}
-
-function Kanade() {
-  return (
-    <div className="character-detail">
-      <h2>Kanade Tachibana</h2>
-      <img src="/images/kanade.jpg" alt="Kanade Tachibana" />
-      <p>Known as Angel, a mysterious girl with supernatural powers.</p>
-    </div>
-  );
-}
-
-function Otonashi() {
-  return (
-    <div className="character-detail">
-      <h2>Otonashi Yuzuru</h2>
-      <img src="/images/otonashi.jpg" alt="Otonashi Yuzuru" />
-      <p>The protagonist who joins the Afterlife Battlefront.</p>
-    </div>
-  );
-}
-
-function Hideki() {
-  return (
-    <div className="character-detail">
-      <h2>Hideki Hinata</h2>
-      <img src="/images/hideki.jpg" alt="Hideki Hinata" />
-      <p>A member of the Afterlife Battlefront, known for his humor.</p>
-    </div>
-  );
-}
-
-function Naoi() {
-  return (
-    <div className="character-detail">
-      <h2>Naoi Ayato</h2>
-      <img src="/images/naoi.jpg" alt="Naoi Ayato" />
-      <p>A former antagonist turned ally.</p>
-    </div>
-  );
-}
-
-function Takamatsu() {
-  return (
-    <div className="character-detail">
-      <h2>Takamatsu</h2>
-      <img src="/images/takamatsu.jpg" alt="Takamatsu" />
-      <p>A member of the Afterlife Battlefront.</p>
-    </div>
-  );
-}
+import YuriNakamura from './images/YuriNakamura.webp';
+import KanadeTachibana from './images/KanadeTachibana.webp';
+import OtonashiYuzuru from './images/OtonashiYuzuru.jpeg';
+import HidekiHinata from './images/HidekiHinata.jpeg';
+import NaoiAyato from './images/NaoiAyato.webp';
+import YuiImage from './images/yui.webp';
+import ModalWindow from './modalwindow'; // Assuming ModalWindow is in the same directory
 
 function AngelBeats() {
+  const [modalContent, setModalContent] = useState(null); // State to track modal content
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal visibility
+
   const characters = [
-    { name: "Yuri Nakamura", path: "yuri", component: Yuri },
-    { name: "Kanade Tachibana", path: "kanade", component: Kanade },
-    { name: "Otonashi Yuzuru", path: "otonashi", component: Otonashi },
-    { name: "Hideki Hinata", path: "hideki", component: Hideki },
-    { name: "Naoi Ayato", path: "naoi", component: Naoi },
-    { name: "Takamatsu", path: "takamatsu", component: Takamatsu }
+    { 
+      name: 'Yuri Nakamura', 
+      image: YuriNakamura, 
+      description: 'Leader of the Afterlife Battlefront.', 
+      detailedDescription: 'Yuri Nakamura is the leader of the Afterlife Battlefront, a group of students who have died and are stuck in the afterlife...',
+      causeOfDeath: 'Unknown', 
+      appearance: 'Episode 1'
+    },
+    { 
+      name: 'Kanade Tachibana', 
+      image: KanadeTachibana, 
+      description: 'Known as Angel, a mysterious girl with supernatural powers.',
+      detailedDescription: 'Kanade Tachibana, known as "Angel", is the student council president with supernatural abilities...',
+      causeOfDeath: 'Heart Disease', 
+      appearance: 'Episode 1'
+    },
+    { 
+      name: 'Otonashi Yuzuru', 
+      image: OtonashiYuzuru, 
+      description: 'The protagonist who joins the Afterlife Battlefront.',
+      detailedDescription: 'Otonashi Yuzuru is the protagonist of Angel Beats, who wakes up in the afterlife with no memories...',
+      causeOfDeath: 'Train Crash', 
+      appearance: 'Episode 1'
+    },
+    { 
+      name: 'Hideki Hinata', 
+      image: HidekiHinata, 
+      description: 'A member of the Afterlife Battlefront, known for his humor.',
+      detailedDescription: 'Hideki Hinata is known for his humor and playful nature, but his past reveals tragic backstories...',
+      causeOfDeath: 'Baseball Accident', 
+      appearance: 'Episode 1'
+    },
+    { 
+      name: 'Naoi Ayato', 
+      image: NaoiAyato, 
+      description: 'A former antagonist turned ally.',
+      detailedDescription: 'Naoi Ayato is a former antagonist who joins the Afterlife Battlefront and learns the importance of friendship...',
+      causeOfDeath: 'Starvation', 
+      appearance: 'Episode 4'
+    },
+    { 
+      name: 'Yui', 
+      image: YuiImage, 
+      description: 'A lively and energetic member of the Afterlife Battlefront.',
+      detailedDescription: 'Yui is a lively member of the group, but her past reveals a tragic story...',
+      causeOfDeath: 'Paralysis', 
+      appearance: 'Episode 2'
+    }
   ];
+
+  const openModal = (content) => {
+    setModalContent(content);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalContent(null);
+  };
 
   return (
     <div className="character-cards-container">
-      <nav className="character-nav">
-        {characters.map((character, index) => (
-          <Link key={index} to={character.path} className="character-link">
-            {character.name}
-          </Link>
-        ))}
-      </nav>
-
-      <Routes>
-        {characters.map((character, index) => (
-          <Route key={index} path={character.path} element={<character.component />} />
-        ))}
-      </Routes>
+      <h3>Click to learn more about a character</h3>
 
       <div className="characters-overview">
         {characters.map((character, index) => (
-          <div key={index} className="character-card">
-            <img src={`/images/${character.path}.jpg`} alt={character.name} className="character-image" />
+          <div 
+            key={index} 
+            className="character-card"
+            onClick={() => openModal(character)} // Trigger modal on card click
+          >
+            <img src={character.image} alt={character.name} className="character-image" />
             <h3>{character.name}</h3>
             <p>{character.description}</p>
           </div>
         ))}
       </div>
+
+      {isModalOpen && modalContent && (
+        <ModalWindow closeModal={closeModal} content={modalContent} />
+      )}
 
       <div className="banner">
         <h1>Afterlife Battlefront</h1>

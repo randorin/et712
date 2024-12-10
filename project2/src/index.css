@@ -125,6 +125,7 @@ body {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: black;
 }
 
 .modal-image {
@@ -214,4 +215,32 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
+}
+
+/* Collapsible card styles */
+.card-container .card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card-container .card.collapsed {
+  transform: scale(1);
+}
+
+.card-container .card.expanded {
+  transform: scale(1.05);
+}
+
+/* Collapsible button style */
+.card-collapse-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-collapse-btn:hover {
+  background-color: #0056b3;
 }

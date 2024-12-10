@@ -67,7 +67,7 @@ function App() {
                   <div key={index} onClick={() => openModal(card)} className="card-link">
                     <Card
                       title={card.title}
-                      description="Click to see description"
+                      description="click to open summary"
                       imageSrc={card.imageSrc}
                     />
                   </div>
@@ -93,4 +93,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

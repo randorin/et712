@@ -1,0 +1,11 @@
+body {
+    background-color: lightblue;
+}
+
+.title {
+    color: crimson;
+    text-align: center;
+}
+.author {
+    text-align: center;
+}
