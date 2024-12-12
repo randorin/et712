@@ -1,24 +1,16 @@
 import React from 'react';
-import './modalwindow.css'
-function ModalWindow({ closeModal, content }) {
-  if (!content) {
-    return null;
-  }
+import './modalwindow.css'; // Ensure your modal CSS is imported
+
+function ModalWindow({ isOpen, onClose, title, imageSrc, description }) {
+  if (!isOpen) return null; // Don't render the modal if it's not open
 
   return (
-    <div className="modal">
+    <div className={`modal ${isOpen ? 'open' : ''}`}>
       <div className="modal-content">
-        <span className="close-btn" onClick={closeModal}>X</span>
-        <h2>{content.name}</h2>
-        <img src={content.image} alt={content.name} />
-        <p>{content.detailedDescription}</p>
-
-        {content.causeOfDeath && (
-          <p><strong>Cause of death:</strong> {content.causeOfDeath}</p>
-        )}
-        {content.appearance && (
-          <p><strong>Appears in:</strong> {content.appearance}</p>
-        )}
+        <button className="close-btn" onClick={onClose}>X</button>
+        <h2>{title}</h2>
+        <img src={imageSrc} alt={title} />
+        <p>{description}</p>
       </div>
     </div>
   );

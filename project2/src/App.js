@@ -85,7 +85,6 @@ function App() {
       <ModalWindow
         isOpen={!!modalData}
         onClose={closeModal}
-        title={modalData?.title}
         imageSrc={modalData?.imageSrc}
         description={modalData?.description}
       />

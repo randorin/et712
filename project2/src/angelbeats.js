@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
 import bannerimg from './images/battlefront.jpg';
 import YuriNakamura from './images/YuriNakamura.webp';
 import KanadeTachibana from './images/KanadeTachibana.webp';
@@ -77,14 +76,9 @@ function AngelBeats() {
   return (
     <div className="character-cards-container">
       <h3>Click to learn more about a character</h3>
-
       <div className="characters-overview">
         {characters.map((character, index) => (
-          <div 
-            key={index} 
-            className="character-card"
-            onClick={() => openModal(character)} // Trigger modal on card click
-          >
+          <div key={index} className="character-card" onClick={() => openModal(character)}>
             <img src={character.image} alt={character.name} className="character-image" />
             <h3>{character.name}</h3>
             <p>{character.description}</p>

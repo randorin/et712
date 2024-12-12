@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(10,10,10);
+    color: white;
+}
+.login {
+    width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    color: rgb(10,10,100);
+}
+.formcontrol {
+    margin-top: 20px;
+}
+.myform legend {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+.formcontrol input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(10,10,100);
+    color: aliceblue;
+    transition: ease-in-out;
+    border: none;
+}
+.formcontrol input {
+    padding: 5px;
+}
