@@ -6,7 +6,7 @@ import ModalWindow from './modalwindow';
 import angelbeatsimg from './images/angelbeats.jpg';
 import inuyashaimg from './images/inuyasha.jpg';
 import narutoimg from './images/naruto.jpg';
-import AngelBeats from '.AngelBeats';
+import AngelBeats from './angelbeats';
 import Inuyasha from './Inuyasha';
 import Naruto from './Naruto';
 
