@@ -64,11 +64,12 @@ function App() {
             element={
               <div className="card-container">
                 {cards.map((card, index) => (
-                  <div key={index} onClick={() => openModal(card)} className="card-link">
+                  <div key={index} className="card-link">
                     <Card
                       title={card.title}
                       description="click to open summary"
                       imageSrc={card.imageSrc}
+                      onClick={() => openModal(card)}
                     />
                   </div>
                 ))}
@@ -82,12 +83,15 @@ function App() {
         </Routes>
       </div>
 
-      <ModalWindow
-        isOpen={!!modalData}
-        onClose={closeModal}
-        imageSrc={modalData?.imageSrc}
-        description={modalData?.description}
-      />
+      {modalData && (
+        <ModalWindow
+          isOpen={!!modalData}
+          onClose={closeModal}
+          title={modalData.title}
+          imageSrc={modalData.imageSrc}
+          description={modalData.description}
+        />
+      )}
     </Router>
   );
 }

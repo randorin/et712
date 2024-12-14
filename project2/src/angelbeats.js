@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import bannerimg from './images/battlefront.jpg';
 import YuriNakamura from './images/YuriNakamura.webp';
 import KanadeTachibana from './images/KanadeTachibana.webp';
@@ -6,12 +6,8 @@ import OtonashiYuzuru from './images/OtonashiYuzuru.jpeg';
 import HidekiHinata from './images/HidekiHinata.jpeg';
 import NaoiAyato from './images/NaoiAyato.webp';
 import YuiImage from './images/yui.webp';
-import ModalWindow from './modalwindow'; // Assuming ModalWindow is in the same directory
 
 function AngelBeats() {
-  const [modalContent, setModalContent] = useState(null); // State to track modal content
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal visibility
-
   const characters = [
     { 
       name: 'Yuri Nakamura', 
@@ -63,32 +59,21 @@ function AngelBeats() {
     }
   ];
 
-  const openModal = (content) => {
-    setModalContent(content);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setModalContent(null);
-  };
-
   return (
     <div className="character-cards-container">
-      <h3>Click to learn more about a character</h3>
+      <h3>Character Information</h3>
       <div className="characters-overview">
         {characters.map((character, index) => (
-          <div key={index} className="character-card" onClick={() => openModal(character)}>
+          <div key={index} className="character-card">
             <img src={character.image} alt={character.name} className="character-image" />
             <h3>{character.name}</h3>
             <p>{character.description}</p>
+            <p>{character.detailedDescription}</p>
+            <p><strong>Cause of Death:</strong> {character.causeOfDeath}</p>
+            <p><strong>First Appearance:</strong> {character.appearance}</p>
           </div>
         ))}
       </div>
-
-      {isModalOpen && modalContent && (
-        <ModalWindow closeModal={closeModal} content={modalContent} />
-      )}
 
       <div className="banner">
         <h1>Afterlife Battlefront</h1>
