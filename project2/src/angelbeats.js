@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalWindow from './modalwindow.js';
 import bannerimg from './images/battlefront.jpg';
 import YuriNakamura from './images/YuriNakamura.webp';
 import KanadeTachibana from './images/KanadeTachibana.webp';
@@ -8,6 +9,9 @@ import NaoiAyato from './images/NaoiAyato.webp';
 import YuiImage from './images/yui.webp';
 
 function AngelBeats() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+
   const characters = [
     { 
       name: 'Yuri Nakamura', 
@@ -59,21 +63,36 @@ function AngelBeats() {
     }
   ];
 
+  const openModal = (character) => {
+    setSelectedCharacter(character);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedCharacter(null);
+  };
+
   return (
     <div className="character-cards-container">
       <h3>Character Information</h3>
       <div className="characters-overview">
         {characters.map((character, index) => (
-          <div key={index} className="character-card">
+          <div key={index} className="character-card" onClick={() => openModal(character)}>
             <img src={character.image} alt={character.name} className="character-image" />
             <h3>{character.name}</h3>
             <p>{character.description}</p>
-            <p>{character.detailedDescription}</p>
-            <p><strong>Cause of Death:</strong> {character.causeOfDeath}</p>
-            <p><strong>First Appearance:</strong> {character.appearance}</p>
           </div>
         ))}
       </div>
+
+      <ModalWindow 
+        isOpen={modalOpen} 
+        onClose={closeModal} 
+        title={selectedCharacter?.name} 
+        imageSrc={selectedCharacter?.image} 
+        description={selectedCharacter?.detailedDescription} 
+      />
 
       <div className="banner">
         <h1>Afterlife Battlefront</h1>

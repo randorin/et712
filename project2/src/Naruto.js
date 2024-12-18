@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalWindow from './modalwindow.js';
 import bannerimg from './images/narutobanner.jpg';
 import NarutoImage from './images/narutoface.jpg';
 import SasukeImage from './images/sasukeface.jpg';
@@ -8,6 +9,9 @@ import ItachiImage from './images/itachiface.jpg';
 import GaaraImage from './images/gaaraface.webp';
 
 function NarutoPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+
   const characters = [
     { 
       name: 'Naruto Uzumaki', 
@@ -53,20 +57,36 @@ function NarutoPage() {
     }
   ];
 
+  const openModal = (character) => {
+    setSelectedCharacter(character);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedCharacter(null);
+  };
+
   return (
     <div className="character-cards-container">
       <h3>Character Information</h3>
       <div className="characters-overview">
         {characters.map((character, index) => (
-          <div key={index} className="character-card">
+          <div key={index} className="character-card" onClick={() => openModal(character)}>
             <img src={character.image} alt={character.name} className="character-image" />
             <h3>{character.name}</h3>
             <p>{character.description}</p>
-            <p>{character.detailedDescription}</p>
-            <p><strong>First Appearance:</strong> {character.appearance}</p>
           </div>
         ))}
       </div>
+
+      <ModalWindow 
+        isOpen={modalOpen} 
+        onClose={closeModal} 
+        title={selectedCharacter?.name} 
+        imageSrc={selectedCharacter?.image} 
+        description={selectedCharacter?.detailedDescription} 
+      />
 
       <div className="banner">
         <img src={bannerimg} alt="Naruto Banner" className="banner-image" />
