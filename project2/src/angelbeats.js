@@ -75,6 +75,10 @@ function AngelBeats() {
 
   return (
     <div className="character-cards-container">
+      <h2>Angel Beats! - Afterlife Battlefront</h2>
+      <p>
+        *Angel Beats!* is set in the afterlife, where a group of teenagers, having passed away under tragic circumstances, must confront their unresolved regrets before they can move on. The series follows Otonashi, who wakes up without any memory of his past life and gets caught in the conflict between the Afterlife Battlefront led by Yuri and Angel, a mysterious figure with supernatural powers. The characters each have their own unique, often painful, backstories that unfold throughout the show, exploring themes of life, death, and redemption.
+      </p>
       <h3>Character Information</h3>
       <div className="characters-overview">
         {characters.map((character, index) => (

@@ -69,6 +69,12 @@ function InuyashaPage() {
 
   return (
     <div className="character-cards-container">
+      <h2>Inuyasha - A Tale of Love, Demons, and Time Travel</h2>
+      <p>
+        Inuyasha is a half-demon from Japan's Sengoku period who embarks on a journey to find the Shikon Jewel, which grants immense power. 
+        Along the way, he is joined by Kagome, a modern-day high school student reincarnated as a priestess, as well as other companions with their own personal quests.
+        This series blends romance, action, and supernatural adventures, while exploring the bonds formed between its characters.
+      </p>
       <h3>Character Information</h3>
       <div className="characters-overview">
         {characters.map((character, index) => (
