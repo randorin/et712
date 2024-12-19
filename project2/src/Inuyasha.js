@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalWindow from './modalwindow.js';
 import bannerimg from './images/inuyashabanner.jpeg';
 import InuyashaImage from './images/inuyashaface.jpeg';
 import KagomeImage from './images/Kagome_Episode_167.webp';
@@ -8,6 +9,9 @@ import ShippoImage from './images/Shippo.webp';
 import KikyoImage from './images/Wounded_Kikyo.webp';
 
 function InuyashaPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+
   const characters = [
     { 
       name: 'Inuyasha', 
@@ -53,20 +57,42 @@ function InuyashaPage() {
     }
   ];
 
+  const openModal = (character) => {
+    setSelectedCharacter(character);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedCharacter(null);
+  };
+
   return (
     <div className="character-cards-container">
+      <h2>Inuyasha - A Tale of Love, Demons, and Time Travel</h2>
+      <p>
+        Inuyasha is a half-demon from Japan's Sengoku period who embarks on a journey to find the Shikon Jewel, which grants immense power. 
+        Along the way, he is joined by Kagome, a modern-day high school student reincarnated as a priestess, as well as other companions with their own personal quests.
+        This series blends romance, action, and supernatural adventures, while exploring the bonds formed between its characters.
+      </p>
       <h3>Character Information</h3>
       <div className="characters-overview">
         {characters.map((character, index) => (
-          <div key={index} className="character-card">
+          <div key={index} className="character-card" onClick={() => openModal(character)}>
             <img src={character.image} alt={character.name} className="character-image" />
             <h3>{character.name}</h3>
             <p>{character.description}</p>
-            <p>{character.detailedDescription}</p>
-            <p><strong>First Appearance:</strong> {character.appearance}</p>
           </div>
         ))}
       </div>
+
+      <ModalWindow 
+        isOpen={modalOpen} 
+        onClose={closeModal} 
+        title={selectedCharacter?.name} 
+        imageSrc={selectedCharacter?.image} 
+        description={selectedCharacter?.detailedDescription} 
+      />
 
       <div className="banner">
         <img src={bannerimg} alt="Inuyasha Banner" className="banner-image" />
