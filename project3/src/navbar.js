@@ -17,7 +17,8 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/cart">Cart</Link>
-        </li>        <li>
+        </li>
+        <li>
           <Link to="/login">Sign Up/Login</Link>
         </li>
       </ul>
